@@ -14,8 +14,9 @@ namespace SupermarketWEB2
 
 
             builder.Services.AddDbContext<SupermarketContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("SupermarketBD"))
-            );
+   options.UseSqlServer(builder.Configuration.GetConnectionString("SupermarketDB"))
+   );
+
 
 
 
