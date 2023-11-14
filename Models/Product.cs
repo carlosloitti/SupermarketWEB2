@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SupermarketWEB2.Models
 {
@@ -15,6 +16,14 @@ namespace SupermarketWEB2.Models
 
         public Category Category { get; set; }
 
+        public int PayModeId { get; set; }
+        public int ProviderId { get; set; }
+
+
+
+        public PayMode PayMode { get; set; }
+
+        public Provider Provider { get; set; }
 
     }
 }
