@@ -8,10 +8,7 @@ namespace SupermarketWEB2.Pages
     public class IndexModel : PageModel
     {
         
-            private readonly ILogger<IndexModel> logger;
-
-
-        private readonly ILogger<IndexModel> _logger;
+            private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
