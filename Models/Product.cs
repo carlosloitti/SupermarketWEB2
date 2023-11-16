@@ -14,16 +14,7 @@ namespace SupermarketWEB2.Models
         public int stock { get; set; }
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
-
-        public int PayModeId { get; set; }
-        public int ProviderId { get; set; }
-
-
-
-        public PayMode PayMode { get; set; }
-
-        public Provider Provider { get; set; }
+        public Category? Category { get; set; } = default!;
 
     }
 }

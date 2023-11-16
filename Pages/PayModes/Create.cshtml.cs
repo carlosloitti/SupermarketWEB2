@@ -20,16 +20,16 @@ namespace SupermarketWEB2.Pages.PayModes
 
         [BindProperty]
 
-        public PayMode PayModes { get; set; } = default!;
+        public PayMode PayMode { get; set; } = default!;
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.PayModes == null || PayModes == null)
+            if (!ModelState.IsValid || _context.PayModes == null || PayMode == null)
             {
                 return Page();
             }
 
-            _context.PayModes.Add(PayModes);
+            _context.PayModes.Add(PayMode);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
