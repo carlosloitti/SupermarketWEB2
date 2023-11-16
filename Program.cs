@@ -17,7 +17,12 @@ namespace SupermarketWEB2
    options.UseSqlServer(builder.Configuration.GetConnectionString("SupermarketDB"))
    );
 
-
+            builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
+            {
+                options.Cookie.Name = "MyCookieAuth";
+                options.LoginPath = "/Account/Login";
+            }
+                );
 
 
 

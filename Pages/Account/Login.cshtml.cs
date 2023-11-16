@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB2.Models;
+using System.Security.Claims;
 
 namespace SupermarketWEB2.Pages.Account
 {
@@ -20,6 +22,19 @@ namespace SupermarketWEB2.Pages.Account
 
             if (User.Email == "correo@gmail.com" && User.Password == "12345" )  
             {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, "admin"),
+                    new Claim(ClaimTypes.Email, User.Email),
+
+
+                };
+
+                var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+
+                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
                 return RedirectToPage("/index");
             }
             return Page();
